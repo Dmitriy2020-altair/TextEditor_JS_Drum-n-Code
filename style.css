@@ -21,6 +21,7 @@ body {
 .text-editor__content-item {
 	margin: 10% 5% 0 20%;
 	text-align: center;
+	font-size: inherit;
 }
 
 .toolbar__inner {
@@ -29,8 +30,8 @@ body {
 	text-align: center;
 	margin-right: 20%;
 	font-weight: 900;
-	font-size: 16px;
 	text-transform: capitalize;
+	font-size: 16px;
 }
 
 .toolbar__item {
@@ -43,4 +44,5 @@ body {
 	font-weight: 600;
 	font-size: 14px;
 	text-transform: uppercase;
+	cursor: pointer;
 }

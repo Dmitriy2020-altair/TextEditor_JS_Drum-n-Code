@@ -1,40 +1,48 @@
 'use strict';
-
-
-const colorPicker = document.querySelector('#text-color');
-const textContent = document.querySelectorAll('.text-editor__content-item');
-const allFontSizeSelectors = document.querySelectorAll('.toolbar__item-font-size');
-
-textContent.forEach(item => item.style.color = localStorage.pickedColor);
-colorPicker.value = localStorage.pickedColor;
-colorPicker.addEventListener('input', colorEditor);
-
-
-function colorEditor(event) {
-
-	textContent.forEach(function (textContent) {
-		let newColor = event.target.value;
-
-		localStorage.setItem('pickedColor', `${newColor}`);
-		textContent.style.color = newColor;
-	});
+class Select {
+	constructor(id, initialValue) {
+		this.container = document.getElementById(id);
+		this.container.querySelector(`option[value="${initialValue}"]`).setAttribute('selected', true);
+	}
 }
 
-function fontSizeEditor(event) {
-
-	textContent.forEach(function (textContent) {
-		let newFontSize = event.target.value;
-
-		localStorage.setItem('choosenFont', `${newFontSize}`);
-		textContent.style.fontSize = `${newFontSize}px`;
-	})
-	console.log(localStorage.newFontSize);
+const initValues = {
+	fontSize: localStorage.fontSize ?? '16px',
+	color: localStorage.color ?? '#000000',
+	fontWeight: localStorage.fontWeight ?? '400',
+	letterSpacing: localStorage.letterSpacing ?? 'normal',
+	lineHeight: localStorage.lineHeight ?? 'normal',
+	fontStyle: localStorage.fontStyle ?? 'normal',
 }
 
-// fontSizeEditor();
+const textContainer = document.querySelector('.text-editor__content-inner');
+Object.assign(textContainer.style, initValues);
 
-function clear() {
-	const resetButton = document.querySelector('.toolbar__reset-button');
-	resetButton.addEventListener('click', () => localStorage.clear());
+function handleInputChange(event) {
+	const { name, value } = event.target;
+
+	textContainer.style[name] = value;
+	localStorage.setItem(name, value);
 }
-clear();
+
+const fontSizeSelect = new Select('fontSizeSelect', initValues.fontSize);
+fontSizeSelect.container.addEventListener('change', handleInputChange)
+
+const fontWeightSelect = new Select('fontWeightSelect', initValues.fontWeight);
+fontWeightSelect.container.addEventListener('change', handleInputChange);
+
+const fontStyleSelect = new Select('fontStyleSelect', initValues.fontStyle);
+fontStyleSelect.container.addEventListener('change', handleInputChange);
+
+const letterSpacingSelect = new Select('letterSpacingSelect', initValues.letterSpacing);
+letterSpacingSelect.container.addEventListener('change', handleInputChange);
+
+const lineHeightSelect = new Select('lineHeightSelect', initValues.lineHeight);
+lineHeightSelect.container.addEventListener('change', handleInputChange);
+
+const colorPicker = document.getElementById('textColorSelect');
+colorPicker.value = initValues.color;
+colorPicker.addEventListener('input', handleInputChange);
+
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', () => localStorage.clear());

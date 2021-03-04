@@ -33,11 +33,12 @@
 						<p class="toolbar__item-title">
 							font size
 						</p>
-							<select class="" name="font-size">
-							<option class="toolbar__item-font-size" value="8" >8px</option>
-							<option class="toolbar__item-font-size" value="16" selected>16px</option>
-							<option class="toolbar__item-font-size" value="24">24px</option>
-							<option class="toolbar__item-font-size" value="36">36px</option>
+						<select class="toolbar__item-font-size-select" id="fontSizeSelect" name="fontSize">
+							<option class="toolbar__item-font-size" value="8px">8px</option>
+							<option class="toolbar__item-font-size" value="16px">16px</option>
+							<option class="toolbar__item-font-size" value="24px">24px</option>
+							<option class="toolbar__item-font-size" value="30px">30px</option>
+							<option class="toolbar__item-font-size" value="36px">36px</option>
 						</select>
 					</div>
 					<div class="toolbar__item">
@@ -45,7 +46,7 @@
 							color
 						</p>
 						<div>
-							<input id="text-color"  type="color" name="head">
+							<input id="textColorSelect"  type="color" name="color">
 							<label for="text-color">tap to change color</label>
 					</div>
 					</div>
@@ -53,44 +54,44 @@
 						<p class="toolbar__item-title">
 							font weight
 						</p>
-							<select name="font-weight">
-							<option value="400" selected>400</option>
-							<option value="600">600</option>
-							<option value="900">900</option>
+							<select class="toolbar__item-font-weight-select" name="fontWeight" id="fontWeightSelect">
+							<option class="toolbar__item-font-weight" value="400">400</option>
+							<option class="toolbar__item-font-weight" value="600">600</option>
+							<option class="toolbar__item-font-weight" value="900">900</option>
 						</select>
 					</div>
 					<div class="toolbar__item">
 						<p class="toolbar__item-title">
 							font style
 						</p>
-							<select name="font style">
-							<option value="normal">normal</option>
-							<option value="italic">italic</option>
+							<select class="toolbar__item-font-style-select" name="fontStyle" id="fontStyleSelect">
+							<option class="toolbar__item-font-style" value="normal">normal</option>
+							<option class="toolbar__item-font-style" value="italic">italic</option>
 						</select>
 					</div>
 					<div class="toolbar__item">
 						<p class="toolbar__item-title">
 							letter spacing
 						</p>
-							<select name="letter-spacing">
-							<option value="normal" selected>normal</option>
-							<option value="8px">2px</option>
-							<option value="10px">5px</option>
-							<option value="16px">10px</option>
+							<select class="toolbar__item-letter-spacing-select" name="letterSpacing" id="letterSpacingSelect">
+							<option class="toolbar__item-letter-spacing" value="normal">normal</option>
+							<option class="toolbar__item-letter-spacing" value="2px">2px</option>
+							<option class="toolbar__item-letter-spacing" value="5px">5px</option>
+							<option class="toolbar__item-letter-spacing" value="10px">10px</option>
 						</select>
 					</div>
 					<div class="toolbar__item">
 						<p class="toolbar__item-title">
 							line height
 						</p>
-							<select name="line-height">
-								<option value="normal" selected>normal</option>
-								<option value="8px">36px</option>
-								<option value="10px">46px</option>
-								<option value="16px">56px</option>
+							<select class="toolbar__item-line-height-select" name="lineHeight" id="lineHeightSelect">
+								<option class="toolbar__item-line-height" value="normal">normal</option>
+								<option class="toolbar__item-line-height" value="36px">36px</option>
+								<option class="toolbar__item-line-height" value="46px">46px</option>
+								<option class="toolbar__item-line-height" value="56px">56px</option>
 							</select>
 					</div>
-					<button class="toolbar__reset-button" value="reset">Reset</button>
+					<button class="toolbar__reset-button" id="resetButton">Reset</button>
 				</div>
 			 </form>
 		</div>
